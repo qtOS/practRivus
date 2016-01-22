@@ -1,56 +1,28 @@
 var express = require('express'),
-	app = express(),
-	server = require('http').createServer(app),
-	io = require('socket.io').listen(server),
-	mongoose = require('mongoose'),
-	path = require('path'),
-	users = {},
-  savedUsers = [],
-	db = require('./db/database'),
-	model = require('./models/Chat'),
-	routes = require('./routes/chat');
+		app = express(),
+		server = require('http').Server(app),
+ 		io = require('socket.io')(server),
+		mongoose = require('mongoose'),
+		path = require('path'),
+		users = {},
+	  savedUsers = [],
+		model = require('./models/Chat'),
+		routes = require('./routes/chat');
+
+require('./db/database')
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
-// server.listen(80);
-//
-//
-// //schema beginnings
-// //call mongoose -> connect to -> 'mongodb://'->'localhost'-> nameOf: (db) 'chat'
-// mongoose.connect('mongodb://localhost/chat', function(err){
-// 	if(err){
-// 		console.log(err);
-// 		console.log('Problem connecting to mongodb.')
-// 	}else{
-// 		console.log('Connected.');
-// 	}
-// });
-//
-// var logSchema = mongoose.Schema({
-// 	email: String,
-// 	password: String
-// })
-// //create the schema: var 'nameSchema' => 'mongoose' -> Schema
-// var chatSchema = mongoose.Schema({
-// 	//nick is name of user
-// 	nick: String,
-// 	//msg from the user
-// 	msg: String,
-// 	//time stamp
-// 	created: {type: Date, default: Date.now},
-//
-//   chatLogs: [logSchema]
-//
-// });
+server.listen(3000);
+
+io.on('connection', function(socket) {
+	console.log('hello socket')
+		socket.emit('msg', { message: 'hi buddy' });
+})
 
 //the collect inside of the data base /// first param is the collection name turns plural ///
-var Chat = new model();
 
-var someData = {
-  title: 'datadtatdata',
-  somethingElse: 'somethingElse'
-}
 
 app.use('/', routes);
 // app.get('/', function(req,res){
@@ -64,7 +36,7 @@ app.use('/', routes);
 //on connection to socket
 io.sockets.on('connection', function(socket){
   //query finds messages
-	var query = Chat.find({});
+	var query = model.find();
   //sort the query in descending order with a limit of 8 messages back from the latest
 	query.sort('-created').limit(8).exec(function(err, docs){
     //if errors out throw error

@@ -1,6 +1,5 @@
-var express = require('express'),
-		mongoose = require('mongoose'),
-		app = express();
+
+var	mongoose = require('mongoose');
 
 var logSchema = mongoose.Schema({
 	email: String,

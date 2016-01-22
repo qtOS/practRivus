@@ -1,10 +1,10 @@
-var express = require('express'),
-		mongoose = require('mongoose'),
-		app = express();
+// var express = require('express'),
+var		mongoose = require('mongoose')
+		// app = express();
 
-var server = require('http').createServer(app);
-
-server.listen(3000);
+// var server = require('http').createServer(app);
+//
+// server.listen(3000);
 
 
 //schema beginnings
@@ -17,3 +17,5 @@ mongoose.connect('mongodb://localhost/chat', function(err){
 		console.log('Connected.');
 	}
 });
+
+// module.exports = chatConnect;
