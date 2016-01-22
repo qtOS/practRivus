@@ -55,8 +55,10 @@
 			var $messageBox = $('#message');
 			var $chat = $('#chat');
 
+      //user form submission
 			$nickForm.submit(function(e){
 				e.preventDefault();
+        //calls to the socket to emit the new user into the chat field
 				socket.emit('new user', $nickBox.val(), function(data){
 					if(data){
 						$('#nickWrap').hide();
@@ -71,9 +73,13 @@
 			//users list
 			socket.on('usernames', function(data){
 				var html = '';
+        //console.log(html);
+        //loops through users data and displays them
 				for(var i=0; i < data.length; i++){
 					html += data[i] + '<br/>'
+          //console.log(html + ' - '+ i);
 				}
+        //ta
 				$users.html(html);
 			});
 

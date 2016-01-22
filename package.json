@@ -2,7 +2,7 @@
   "name": "pract",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3",
+    "handlebars": "^4.0.5",
+    "mongoose": "^4.3.6",
     "socket.io": "^1.4.4"
   }
 }
