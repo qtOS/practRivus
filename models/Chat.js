@@ -2,8 +2,7 @@
 var	mongoose = require('mongoose');
 
 var logSchema = mongoose.Schema({
-	email: String,
-	password: String
+	prevUsers: Array
 })
 //create the schema: var 'nameSchema' => 'mongoose' -> Schema
 var chatSchema = mongoose.Schema({
