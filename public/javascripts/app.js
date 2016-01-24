@@ -29,18 +29,23 @@ jQuery(function($){
     //loops through users data and displays them
     for(var i=0; i < data.length; i++){
       user += '<li>'+data[i] + '</li>'
-      console.log(user + ' - '+ i);
+      console.log(data[i]+ ' has logged in.');
+    //  console.log(user + ' - '+ i);
     }
     $users.html(user);
   });
-
+  //sends error if whisper cannot be made
   $messageForm.submit(function(e){
     e.preventDefault();
     socket.emit('send message', $messageBox.val(), function(data){
       $chat.append('<span class="error">' + data + "</span><br/>");
+      console.log(data);
     });
     $messageBox.val('');
   });
+
+
+
 
   //loops through old messages
   socket.on('load old msgs', function(docs){
@@ -53,10 +58,12 @@ jQuery(function($){
     displayMsg(data);
   });
 
+  //display message to everyone
   function displayMsg(data){
     $chat.append('<span class="msg"><b>' + data.nick + ': </b>' + data.msg + "</span><br/>");
   }
 
+  //whisper users
   socket.on('whisper', function(data){
     $chat.append('<span class="whisper"><b>' + data.nick + ': </b>' + data.msg + "</span><br/>");
   });

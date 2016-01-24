@@ -10,7 +10,7 @@ router.get('/', function(req, res){
   res.render('home', someData);
 })
 router.get('/chat', function(req, res){
-  res.render('index')
+  res.render('index');
 });
 
 module.exports = router;
