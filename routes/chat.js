@@ -3,7 +3,7 @@ var express = require('express'),
 
 var someData = {
   title: 'RIVUS',
-  desc: 'Anonymous chat, an endless stream of communication at your fingertips.'
+  desc: 'Streaming chat for your business, not others.'
 }
 
 router.get('/', function(req, res){

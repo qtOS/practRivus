@@ -1,26 +1,23 @@
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<div id="nickWrap">
+	<p>Enter a username:</p>
+	<p id="nickError"></p>
+	<form id="setNick">
+		<input size="35" id="nickname"></input>
+		<input type="submit"></input>
+	</form>
+</div>
 
-<body>
-	<div id="nickWrap">
-		<p>Enter a username:</p>
-		<p id="nickError"></p>
-		<form id="setNick">
-			<input size="35" id="nickname"></input>
+<div id="contentWrap">
+	<div id="chatWrap">
+		<div id="chat"></div>
+		<form id="send-message">
+			<input size="35" id="message"></input>
 			<input type="submit"></input>
 		</form>
 	</div>
-
-	<div id="contentWrap">
-		<div id="chatWrap">
-			<div id="chat"></div>
-			<form id="send-message">
-				<input size="35" id="message"></input>
-				<input type="submit"></input>
-			</form>
-		</div>
-		<div id="users"></div>
-	</div>
-	<script src="vendors/jquery/dist/jquery.js"></script>
-	<script src="vendors/socketio/node_modules/socket.io-client/socket.io.js"></script>
-	<script src="javascripts/app.js"></script>
-</body>
-</html>
+	<div id="users"></div>
+</div>
+<script src="vendors/jquery/dist/jquery.js"></script>
+<script src="vendors/socketio/node_modules/socket.io-client/socket.io.js"></script>
+<script src="javascripts/app.js"></script>
