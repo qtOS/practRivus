@@ -32,7 +32,7 @@ app.use(function(req, res) {
 //user connected to /chat
 io.on('connection', function(socket) {
 	console.log('A user connected');
-	socket.emit('msg');
+	//socket.emit('msg');
 })
 //on connection to socket
 io.sockets.on('connection', function(socket){
@@ -45,10 +45,15 @@ io.sockets.on('connection', function(socket){
 		if(err) throw err;
     //otherwise load the old messages
 		socket.emit('load old msgs', docs);
+		//important
+		console.log(docs[0].msg);
 	});
   //creates new user
 	socket.on('new user', function(data, callback){
     //checks to see if user exist
+		console.log(data);
+		data = data.toLowerCase();
+		console.log(data);
 		if (data in users){
       //returns false if user exists
 			callback(false);
@@ -57,8 +62,12 @@ io.sockets.on('connection', function(socket){
 			callback(true);
       //calls the socket nickname
 			socket.nickname = data;
-			var ab = savedUsers.push(data);
+			var userCount = savedUsers.push(data);
+			console.log(savedUsers);
+			console.log(userCount);
 			users[socket.nickname] = socket;
+
+			//console.log(users[socket.nickname]);
 			updateNicknames();
 		}
 	});
@@ -68,7 +77,9 @@ io.sockets.on('connection', function(socket){
 	}
 
 	socket.on('send message', function(data, callback){
-		var msg = data.trim();
+		var msg = data;
+		console.log(msg);
+		msg = data.trim();
 		console.log('after trimming message is: ' + msg);
 		if(msg.substr(0,3) === '/w '){
 			msg = msg.substr(3);
