@@ -1,6 +1,51 @@
 body {
   color: white;
   background: black; }
+  body #preloader_1 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: black;
+    z-index: 100; }
+  body #preloader_1 span {
+    display: block;
+    top: 40%;
+    bottom: 40%;
+    left: 46%;
+    width: 2%;
+    height: 2%;
+    background: #9b59b6;
+    position: fixed;
+    animation: preloader_1 1.5s  infinite ease-in-out; }
+  body #preloader_1 span:nth-child(2) {
+    left: 48%;
+    animation-delay: .2s; }
+  body #preloader_1 span:nth-child(3) {
+    left: 50%;
+    animation-delay: .4s; }
+  body #preloader_1 span:nth-child(4) {
+    left: 52%;
+    animation-delay: .6s; }
+  body #preloader_1 span:nth-child(5) {
+    left: 54%;
+    animation-delay: .8s; }
+@keyframes preloader_1 {
+  0% {
+    height: 4%;
+    transform: translateY(0px);
+    background: #9b59b6; }
+  25% {
+    height: 10%;
+    transform: translateY(15px);
+    background: #3498db; }
+  50% {
+    height: 4%;
+    transform: translateY(0px);
+    background: #9b59b6; }
+  100% {
+    height: 4%;
+    transform: translateY(0px);
+    background: #9b59b6; } }
   body #chat {
     height: 500px; }
   body #contentWrap {
