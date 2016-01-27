@@ -1,6 +1,30 @@
 body {
   color: white;
   background: black; }
+  body ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px; }
+  body ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px; }
+  body ::-webkit-scrollbar-thumb {
+    background: #dab24c;
+    border: 0px none #8ed7ff;
+    border-radius: 50px; }
+  body ::-webkit-scrollbar-thumb:hover {
+    background: #e7c122; }
+  body ::-webkit-scrollbar-thumb:active {
+    background: #ffb818; }
+  body ::-webkit-scrollbar-track {
+    background: #707877;
+    border: 0px none #ffffff;
+    border-radius: 0px; }
+  body ::-webkit-scrollbar-track:hover {
+    background: #666666; }
+  body ::-webkit-scrollbar-track:active {
+    background: #000000; }
+  body ::-webkit-scrollbar-corner {
+    background: transparent; }
   body #preloader_1 {
     width: 100%;
     height: 100%;
@@ -14,7 +38,7 @@ body {
     left: 46%;
     width: 2%;
     height: 2%;
-    background: #9b59b6;
+    background: white;
     position: fixed;
     animation: preloader_1 1.5s  infinite ease-in-out; }
   body #preloader_1 span:nth-child(2) {
@@ -33,19 +57,19 @@ body {
   0% {
     height: 4%;
     transform: translateY(0px);
-    background: #9b59b6; }
+    background: white; }
   25% {
     height: 10%;
     transform: translateY(15px);
-    background: #3498db; }
+    background: #d5af26; }
   50% {
     height: 4%;
     transform: translateY(0px);
-    background: #9b59b6; }
+    background: white; }
   100% {
     height: 4%;
     transform: translateY(0px);
-    background: #9b59b6; } }
+    background: white; } }
   body #chat {
     height: 500px; }
   body #contentWrap {

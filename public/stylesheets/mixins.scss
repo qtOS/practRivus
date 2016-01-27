@@ -54,3 +54,39 @@
   background-size: cover;
 }
 //scrollbar mixin from css-tricks
+@mixin scrollBar(){
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #dab24c;
+    border: 0px none #8ed7ff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e7c122;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: #ffb818;
+  }
+  ::-webkit-scrollbar-track {
+    background: #707877;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: #666666;
+  }
+  ::-webkit-scrollbar-track:active {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
