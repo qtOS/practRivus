@@ -1,19 +1,23 @@
-<link rel='stylesheet' href='/stylesheets/style.css' />
-<div id="nickWrap">
-	<p>Enter a username:</p>
-	<p id="nickError"></p>
-	<form id="setNick">
-		<input size="35" id="nickname"></input>
+<div id="username-login-form">
+	<p id="login-fail"></p>
+	<form id="set-name-form">
+		<label>Enter a username:</label>
+		<input size="35" id="username"></input>
 		<input type="submit"></input>
 	</form>
 </div>
 
-<div id="contentWrap">
-	<div id="chatWrap">
+<div id="content-wrapper">
+	<div id="chat-wrapper">
 		<div id="chat"></div>
+	</div>
+	<div id="sender-wrapper">
 		<form id="send-message">
-			<input size="35" id="message"></input>
-			<input type="submit"></input>
+			<div id="input-container">
+				<input type="text" id="message">
+				<!-- <button type="submit" id="submitter">lingling</button> -->
+				<!-- <textarea id="message"></textarea> -->
+			</div>
 		</form>
 	</div>
 	<div id="users"></div>
@@ -21,3 +25,4 @@
 <script src="vendors/socketio/node_modules/socket.io-client/socket.io.js"></script>
 <script src="vendors/jquery/dist/jquery.js"></script>
 <script src="javascripts/app.js"></script>
+<link rel='stylesheet' href='/stylesheets/chat-stylesheets/chat-style.css' />

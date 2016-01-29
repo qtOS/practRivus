@@ -13,7 +13,6 @@ body{
     background-color: black;
     z-index: 100;
   }
-
   #preloader_1 span{
     display:block;
     top: 40%;
@@ -25,11 +24,9 @@ body{
     position:fixed;
     animation: preloader_1 1.5s  infinite ease-in-out;
   }
-
   #preloader_1 span:nth-child(2){
     left: 48%;
     animation-delay: .2s;
-
   }
   #preloader_1 span:nth-child(3){
     left:50%;

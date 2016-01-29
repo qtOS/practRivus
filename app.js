@@ -45,8 +45,11 @@ io.sockets.on('connection', function(socket){
 		if(err) throw err;
     //otherwise load the old messages
 		socket.emit('load old msgs', docs);
+		//~~~~~~~~
 		//important
-		console.log(docs[0].msg);
+		//console.log(docs[0].msg);
+		//this grabs messages
+		//~~~~~~~~
 	});
   //creates new user
 	socket.on('new user', function(data, callback){
@@ -54,7 +57,7 @@ io.sockets.on('connection', function(socket){
 		console.log(data);
 		data = data.toLowerCase();
 		console.log(data);
-		if (data in users){
+		if (data in users || data == 0 || data.length > 15){
       //returns false if user exists
 			callback(false);
 		} else{
@@ -75,34 +78,43 @@ io.sockets.on('connection', function(socket){
 	function updateNicknames(){
 		io.sockets.emit('usernames', Object.keys(users));
 	}
-
+	// function blockEmpty(msg){
+	// 	if(msg.length == null){
+	//
+	// 	}
+	// }
 	socket.on('send message', function(data, callback){
-		var msg = data;
-		console.log(msg);
-		msg = data.trim();
-		console.log('after trimming message is: ' + msg);
-		if(msg.substr(0,3) === '/w '){
-			msg = msg.substr(3);
-			var ind = msg.indexOf(' ');
-			if(ind !== -1){
-				var name = msg.substring(0, ind);
-				var msg = msg.substring(ind + 1);
-				if(name in users){
-					users[name].emit('whisper', {msg: msg, nick: socket.nickname});
-					console.log('message sent is: ' + msg);
-					console.log('Whisper!');
+		if( data == 0){
+			callback(data);
+		}else{
+			var msg = data;
+			console.log(data +': data')
+			console.log(msg);
+			msg = data.trim();
+			console.log('after trimming message is: ' + msg);
+			if(msg.substr(0,3) === '/w '){
+				msg = msg.substr(3);
+				var ind = msg.indexOf(' ');
+				if(ind !== -1){
+					var name = msg.substring(0, ind);
+					var msg = msg.substring(ind + 1);
+					if(name in users){
+						users[name].emit('whisper', {msg: msg, nick: socket.nickname});
+						console.log('message sent is: ' + msg);
+						console.log('Whisper!');
+					} else{
+						callback('Error!  Enter a valid user.');
+					}
 				} else{
-					callback('Error!  Enter a valid user.');
+					callback('Error!  Please enter a message for your whisper.');
 				}
 			} else{
-				callback('Error!  Please enter a message for your whisper.');
+				var newMsg = new model({msg: msg, nick: socket.nickname});
+				newMsg.save(function(err){
+					if(err) throw err;
+					io.sockets.emit('new message', {msg: msg, nick: socket.nickname});
+				});
 			}
-		} else{
-			var newMsg = new model({msg: msg, nick: socket.nickname});
-			newMsg.save(function(err){
-				if(err) throw err;
-				io.sockets.emit('new message', {msg: msg, nick: socket.nickname});
-			});
 		}
 	});
 
