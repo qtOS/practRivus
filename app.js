@@ -57,7 +57,7 @@ io.sockets.on('connection', function(socket){
 		console.log(data);
 		data = data.toLowerCase();
 		console.log(data);
-		if (data in users || data == 0 || data.length > 15){
+		if (data in users || data == 0 || data.length > 13){
       //returns false if user exists
 			callback(false);
 		} else{
@@ -84,7 +84,7 @@ io.sockets.on('connection', function(socket){
 	// 	}
 	// }
 	socket.on('send message', function(data, callback){
-		if( data == 0){
+		if( data == 0 || socket.nickname == null){
 			callback(data);
 		}else{
 			var msg = data;

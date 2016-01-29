@@ -1,27 +1,79 @@
+@import "variable.scss";
+@import "mixins.scss";
 html, body{
   width: 100%;
   height: 100%;
+  font-family: $bitterFont;
   overflow: hidden;
-  background-color: green;
   margin: 0;
+  background-color: rgba(200, 200 ,200, .2);
+  //scrollbar fix
+  body ::-webkit-scrollbar {
+    width: 1vw;
+    height: 2vh; }
+  body ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px; }
+  body ::-webkit-scrollbar-thumb {
+    background: #252B2D;
+    border: 0px none #8ed7ff;
+    border-radius: 50px; }
+  body ::-webkit-scrollbar-thumb:hover {
+    background: #647479; }
+  body ::-webkit-scrollbar-thumb:active {
+    background: #98B2B9; }
+  body ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.6);
+    border: 0px none #ffffff;
+    border-radius: 0px; }
+  body ::-webkit-scrollbar-track:hover {
+    background: rgba(0, 0, 0, 0.6); }
+  body ::-webkit-scrollbar-track:active {
+    background: rgba(0, 0, 0, 0.3); }
+  body ::-webkit-scrollbar-corner {
+    background: transparent; }
+  //login part
+  #username-login-form{
+    position: fixed;
+    top: 10%; bottom: 10%; left: 10%; right: 10%;
+    background-color: white;
+    color: black;
+    z-index: 100;
+    text-align: center;
+    padding-top: 10%;
 
+    #set-name-form{
+      display: block;
+      width: 25%;
+      margin: 0 auto;
+      font-size: 3vh;
+      input{
+        width: 100%;
+      }
+      input:nth-child(odd){
+        width: 20%;
+        border: none;
+      }
+    }
+  }
+  //chat part
   #content-wrapper{
-    display: none;
     width: 100%;
     height: 100%;
-    background-color: purple;
+    //replace
+    @include resizableBackground('/../imgs/river.jpg');
+
     overflow-y: auto;
 
     #chat-wrapper{
-      background: #e43456;
       display: block;
       width: 50%;
       height: 80%;
       margin: 0 auto;
 
       #chat{
-        background-color: white;
-        color: red;
+        //replace
+        background-color: rgba(200, 200, 200, .9);
         width: 100%;
         height: 100%;
         overflow-y: auto;
@@ -38,10 +90,11 @@ html, body{
         .msg{
           padding: 5px;
           display: block;
-          width: 70%;
+          width: 50%;
           background: black;
           opacity: .7;
           overflow-x: hidden;
+          font-size: 2.25vh;
         }
       }
     }
@@ -49,7 +102,7 @@ html, body{
     #sender-wrapper{
       width: 100%;
       height: 20%;
-      background: #434355;
+      background: rgba(#434355, .9);
 
       #input-container{
         width: 100%;
@@ -90,10 +143,10 @@ html, body{
       padding: 2.5%;
 
       .usersList{
-        font-size: 2.5vh;
+        font-size: 1.75vw;
         display: block;
         padding: 5px;
-        background-color: green;
+        background-color: rgba(100, 100, 100, .5);
       }
     }
   }

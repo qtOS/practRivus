@@ -42,6 +42,7 @@ jQuery(function($){
     //  console.log(user + ' - '+ i);
     }
     $users.html(user);
+
   });
   //sends error if whisper cannot be made
   $messageForm.submit(function(e){
@@ -50,8 +51,6 @@ jQuery(function($){
       // $chat.append('<span class="error">' + data + "</span>");
       var height = $chat[0].scrollHeight;
       $chat.scrollTop(height);
-
-
     });
     $messageBox.val('');
   });

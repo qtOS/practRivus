@@ -1,24 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,700);
 html, body {
   width: 100%;
   height: 100%;
+  font-family: "Bitter", serif;
   overflow: hidden;
-  background-color: green;
-  margin: 0; }
+  margin: 0;
+  background-color: rgba(200, 200, 200, 0.2); }
+  html body ::-webkit-scrollbar, body body ::-webkit-scrollbar {
+    width: 1vw;
+    height: 2vh; }
+  html body ::-webkit-scrollbar-button, body body ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px; }
+  html body ::-webkit-scrollbar-thumb, body body ::-webkit-scrollbar-thumb {
+    background: #252B2D;
+    border: 0px none #8ed7ff;
+    border-radius: 50px; }
+  html body ::-webkit-scrollbar-thumb:hover, body body ::-webkit-scrollbar-thumb:hover {
+    background: #647479; }
+  html body ::-webkit-scrollbar-thumb:active, body body ::-webkit-scrollbar-thumb:active {
+    background: #98B2B9; }
+  html body ::-webkit-scrollbar-track, body body ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.6);
+    border: 0px none #ffffff;
+    border-radius: 0px; }
+  html body ::-webkit-scrollbar-track:hover, body body ::-webkit-scrollbar-track:hover {
+    background: rgba(0, 0, 0, 0.6); }
+  html body ::-webkit-scrollbar-track:active, body body ::-webkit-scrollbar-track:active {
+    background: rgba(0, 0, 0, 0.3); }
+  html body ::-webkit-scrollbar-corner, body body ::-webkit-scrollbar-corner {
+    background: transparent; }
+  html #username-login-form, body #username-login-form {
+    position: fixed;
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+    background-color: white;
+    color: black;
+    z-index: 100;
+    text-align: center;
+    padding-top: 10%; }
+    html #username-login-form #set-name-form, body #username-login-form #set-name-form {
+      display: block;
+      width: 25%;
+      margin: 0 auto;
+      font-size: 3vh; }
+      html #username-login-form #set-name-form input, body #username-login-form #set-name-form input {
+        width: 100%; }
+      html #username-login-form #set-name-form input:nth-child(odd), body #username-login-form #set-name-form input:nth-child(odd) {
+        width: 20%;
+        border: none; }
   html #content-wrapper, body #content-wrapper {
-    display: none;
     width: 100%;
     height: 100%;
-    background-color: purple;
+    background: url("/../imgs/river.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow-y: auto; }
     html #content-wrapper #chat-wrapper, body #content-wrapper #chat-wrapper {
-      background: #e43456;
       display: block;
       width: 50%;
       height: 80%;
       margin: 0 auto; }
       html #content-wrapper #chat-wrapper #chat, body #content-wrapper #chat-wrapper #chat {
-        background-color: white;
-        color: red;
+        background-color: rgba(200, 200, 200, 0.9);
         width: 100%;
         height: 100%;
         overflow-y: auto;
@@ -32,14 +79,15 @@ html, body {
         html #content-wrapper #chat-wrapper #chat .msg, body #content-wrapper #chat-wrapper #chat .msg {
           padding: 5px;
           display: block;
-          width: 70%;
+          width: 50%;
           background: black;
           opacity: .7;
-          overflow-x: hidden; }
+          overflow-x: hidden;
+          font-size: 2.25vh; }
     html #content-wrapper #sender-wrapper, body #content-wrapper #sender-wrapper {
       width: 100%;
       height: 20%;
-      background: #434355; }
+      background: rgba(67, 67, 85, 0.9); }
       html #content-wrapper #sender-wrapper #input-container, body #content-wrapper #sender-wrapper #input-container {
         width: 100%;
         height: 100%; }
@@ -63,9 +111,9 @@ html, body {
       left: 0;
       padding: 2.5%; }
       html #content-wrapper #users .usersList, body #content-wrapper #users .usersList {
-        font-size: 2.5vh;
+        font-size: 1.75vw;
         display: block;
         padding: 5px;
-        background-color: green; }
+        background-color: rgba(100, 100, 100, 0.5); }
 
 /*# sourceMappingURL=chat-style.css.map */
