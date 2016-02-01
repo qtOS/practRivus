@@ -5,6 +5,8 @@ var express = require('express'),
 		mongoose = require('mongoose'),
 		path = require('path'),
 		sass = require('node-sass'),
+		_ = require('backbone/node_modules/underscore'),
+		backbone = require('backbone'),
 		users = {},
 	  savedUsers = [],
 		model = require('./models/Chat'),
@@ -55,9 +57,9 @@ io.sockets.on('connection', function(socket){
 	socket.on('new user', function(data, callback){
     //checks to see if user exist
 		console.log(data);
-		data = data.toLowerCase();
+		data = data.toLowerCase();//ensuring lowercase in database
 		console.log(data);
-		if (data in users || data == 0 || data.length > 13){
+		if (data in users || data == 0 || data.length > 13 || _.contains(savedUsers, data)){
       //returns false if user exists
 			callback(false);
 		} else{

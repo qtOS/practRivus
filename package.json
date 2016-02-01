@@ -16,6 +16,7 @@
     "socket.io": "^1.4.4"
   },
   "devDependencies": {
+    "backbone": "^1.2.3",
     "jquery": "^2.2.0"
   }
 }
