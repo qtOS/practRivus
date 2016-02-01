@@ -98,8 +98,7 @@ html, body {
           margin: 0 auto;
           display: block;
           border: none;
-          padding: .5%;
-          background-color: blue; }
+          padding: .5%; }
     html #content-wrapper #users, body #content-wrapper #users {
       width: 15%;
       height: 30%;
