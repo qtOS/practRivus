@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 
+
 app.use(function(req, res) {
   var err = new Error('Not Found');
   err.status = 404;
@@ -33,17 +34,17 @@ app.use(function(req, res) {
 });
 
 //user connected to /chat
-io.on('connection', function(socket) {
+io.sockets.on('connection', function(socket) {
 	console.log('A user connected');
-	//socket.emit('msg');
 })
 //on connection to socket
 io.sockets.on('connection', function(socket){
+	console.log('shazamo');
   //query finds messages
 	//must use model.find() to search the premade model --- no need for a new CHAT model. It wouldn't exist.
 	var query = model.find();
   //sort the query in descending order with a limit of 8 messages back from the latest
-	query.sort('-created').limit(8).exec(function(err, docs){
+	query.sort('-created').limit(4).exec(function(err, docs){
     //if errors out throw error
 		if(err) throw err;
     //otherwise load the old messages
@@ -100,17 +101,24 @@ io.sockets.on('connection', function(socket){
 			console.log(msg);
 			msg = data.trim();
 			console.log('after trimming message is: ' + msg);
-			var msgCount = sentMsgs.push(data);
-			console.log(msgCount + ' : counted msg');
-
+			// if(msg.substr(0) === '/'){
+			// 	var someData = {
+			// 		msg: "need help?",
+			// 		stuff: 'more stuff'
+			// 	}
+			//
+					//need to use backbone and underscore here
+				// io.emit('whisper', {msg: someData, nick: "the logger"});
+				//~~~~ cant forget this
+			//}
+			console.log('hi')
 			//whisper logic
 			if(msg.substr(0,3) === '/w ' || msg.substr(0,2) === '/w'){
 				msg = msg.substr(3);
-				console.log(msg.indexOf(' ') + ' :::indexing');
 				var ind = msg.indexOf(' ');
-				console.log(ind + ' :: test');
+				console.log('whisper was not made, fool');
 				if(ind !== -1){
-					var name = msg.substring(0, ind);
+					var name = msg.substring(0, ind).toLowerCase();
 					var msg = msg.substring(ind + 1);
 					console.log(msg + ' ::: ' +ind +' : '+':: test')
 					if(name in users){
@@ -125,6 +133,8 @@ io.sockets.on('connection', function(socket){
 					callback('Error!  Please enter a message for your whisper.');
 				}
 			} else{
+				var msgCount = sentMsgs.push(data);
+				console.log(msgCount + ' : counted msg');
 				var newMsg = new model({msg: msg, nick: socket.nickname});
 				newMsg.save(function(err){
 					if(err) throw err;

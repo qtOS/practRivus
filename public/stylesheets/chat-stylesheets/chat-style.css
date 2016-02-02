@@ -30,14 +30,22 @@ html, body {
     background: rgba(0, 0, 0, 0.3); }
   html body ::-webkit-scrollbar-corner, body body ::-webkit-scrollbar-corner {
     background: transparent; }
+  html #login-wrapper, body #login-wrapper {
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background-color: rgba(10, 10, 10, 0.8);
+    z-index: 99; }
   html #username-login-form, body #username-login-form {
     position: fixed;
     top: 10%;
     bottom: 10%;
     left: 10%;
     right: 10%;
-    background-color: white;
-    color: black;
+    background-color: #282828;
+    color: white;
     z-index: 100;
     text-align: center;
     padding-top: 10%; }
@@ -47,9 +55,11 @@ html, body {
       margin: 0 auto;
       font-size: 3vh; }
       html #username-login-form #set-name-form input, body #username-login-form #set-name-form input {
-        width: 100%; }
+        width: 100%;
+        border: none;
+        padding: 0; }
       html #username-login-form #set-name-form input:nth-child(odd), body #username-login-form #set-name-form input:nth-child(odd) {
-        width: 20%;
+        padding: 2%;
         border: none; }
   html #content-wrapper, body #content-wrapper {
     width: 100%;
@@ -79,11 +89,11 @@ html, body {
         html #content-wrapper #chat-wrapper #chat .msg, body #content-wrapper #chat-wrapper #chat .msg {
           padding: 5px;
           display: block;
-          width: 50%;
+          width: 90%;
           background: black;
           opacity: .7;
           overflow-x: hidden;
-          font-size: 2.25vh; }
+          font-size: 3.25vh; }
     html #content-wrapper #sender-wrapper, body #content-wrapper #sender-wrapper {
       width: 100%;
       height: 20%;

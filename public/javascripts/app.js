@@ -17,12 +17,17 @@ jQuery(function($){
   //$('#content-wrapper').css('background-image', 'url(' + imageUrl +')');
 
   //user form submission
+  var a = window.prompt('enter your name');
+  console.log(a);
+
+
   $nameForm.submit(function(e){
     e.preventDefault();
     //calls to the socket to emit the new user into the chat field
     socket.emit('new user', $userBox.val(), function(data){
       if(data){
         //do more here
+        $('#login-wrapper').hide();
         $('#username-login-form').hide(); // change this
         $('#content-wrapper').show(); //change this
       } else{
