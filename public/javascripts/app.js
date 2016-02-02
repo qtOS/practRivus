@@ -1,13 +1,19 @@
 jQuery(function($){
   var socket = io.connect();
   var $nameForm = $('#set-name-form');
-  var $nickError = $('#login-fail');
+  var $nameError = $('#login-fail');
   var $userBox = $('#username');
   var $users = $('#users');
   var $messageForm = $('#send-message');
   var $messageBox = $('#message');
   var $chat = $('#chat');
   var $chatwrap = $('#chat-wrapper');
+  var bgArr = ['one.jpg', 'two.jpg', 'three.jpg'];
+  var bg = bgArr[Math.floor(Math.random() * bgArr.length)];
+  var path = '/../imgs/';
+  var imageUrl = path + bg;
+
+  $('#content-wrapper').css('background-image', 'url(' + imageUrl +')');
 
   //user form submission
   $nameForm.submit(function(e){
@@ -16,10 +22,10 @@ jQuery(function($){
     socket.emit('new user', $userBox.val(), function(data){
       if(data){
         //do more here
-        $('#username-login-form').hide();
-        $('#content-wrapper').show();
+        $('#username-login-form').hide(); // change this
+        $('#content-wrapper').show(); //change this
       } else{
-        $nickError.html('Please enter a valid username! That one may be taken or invalid.  Try again.');
+        $nameError.html('Please enter a valid username! That one may be taken or invalid.  Try again.');
       }
     });
     $userBox.val('');
@@ -68,7 +74,14 @@ jQuery(function($){
 
   //display message to everyone
   function displayMsg(data){
+    // if(data.nick == socket.nickname){
+    //
+    // }
     $chat.append('<p class="msg"><b>' + data.nick + ': </b>' + data.msg + "</p>");
+    // console.log($chat[0].children);
+    // for(var i = 0; i < $chat.children; i++ ){
+    //   console.log($chat[0].children);
+    // }
     var height = $chat[0].scrollHeight;
     $chat.scrollTop(height);
   }

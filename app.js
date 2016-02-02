@@ -9,6 +9,7 @@ var express = require('express'),
 		backbone = require('backbone'),
 		users = {},
 	  savedUsers = [],
+		sentMsgs = [],
 		model = require('./models/Chat'),
 		routes = require('./routes/chat');
 
@@ -53,28 +54,33 @@ io.sockets.on('connection', function(socket){
 		//this grabs messages
 		//~~~~~~~~
 	});
+
   //creates new user
 	socket.on('new user', function(data, callback){
-    //checks to see if user exist
-		console.log(data);
-		data = data.toLowerCase();//ensuring lowercase in database
-		console.log(data);
-		if (data in users || data == 0 || data.length > 13 || _.contains(savedUsers, data)){
-      //returns false if user exists
-			callback(false);
-		} else{
-      //returns true
-			callback(true);
-      //calls the socket nickname
-			socket.nickname = data;
-			var userCount = savedUsers.push(data);
-			console.log(savedUsers);
-			console.log(userCount);
-			users[socket.nickname] = socket;
+		function throwUser(something){
+			data = data.toLowerCase();//ensuring lowercase in database
+			if (data in users || data == 0 || data.length > 13 || _.contains(savedUsers, data)){
+	      //returns false if user exists
+				callback(false);
+			} else{
+	      //returns true allowing connections to be made
 
-			//console.log(users[socket.nickname]);
-			updateNicknames();
+				callback(true);
+	      //calls the socket nickname
+				socket.nickname = data;
+				//inputting logs to correct arrays
+				var userCount = savedUsers.push(data);
+				//names taken
+				console.log(savedUsers);
+				//count
+				console.log(userCount);
+				users[socket.nickname] = socket;
+
+				//console.log(users[socket.nickname]);
+				updateNicknames();
+			}
 		}
+		throwUser(data);
 	});
 
 	function updateNicknames(){
@@ -94,6 +100,8 @@ io.sockets.on('connection', function(socket){
 			console.log(msg);
 			msg = data.trim();
 			console.log('after trimming message is: ' + msg);
+			var msgCount = sentMsgs.push(data);
+			console.log(msgCount + ' : counted msg');
 			if(msg.substr(0,3) === '/w '){
 				msg = msg.substr(3);
 				var ind = msg.indexOf(' ');
