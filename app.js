@@ -93,7 +93,7 @@ io.sockets.on('connection', function(socket){
 	// }
 	socket.on('send message', function(data, callback){
 		if( data == 0 || socket.nickname == null){
-			callback(data);
+			callback(false);
 		}else{
 			var msg = data;
 			console.log(data +': data')
@@ -102,18 +102,24 @@ io.sockets.on('connection', function(socket){
 			console.log('after trimming message is: ' + msg);
 			var msgCount = sentMsgs.push(data);
 			console.log(msgCount + ' : counted msg');
-			if(msg.substr(0,3) === '/w '){
+
+			//whisper logic
+			if(msg.substr(0,3) === '/w ' || msg.substr(0,2) === '/w'){
 				msg = msg.substr(3);
+				console.log(msg.indexOf(' ') + ' :::indexing');
 				var ind = msg.indexOf(' ');
+				console.log(ind + ' :: test');
 				if(ind !== -1){
 					var name = msg.substring(0, ind);
 					var msg = msg.substring(ind + 1);
+					console.log(msg + ' ::: ' +ind +' : '+':: test')
 					if(name in users){
 						users[name].emit('whisper', {msg: msg, nick: socket.nickname});
 						console.log('message sent is: ' + msg);
 						console.log('Whisper!');
 					} else{
 						callback('Error!  Enter a valid user.');
+						console.log('errrororeoroero');
 					}
 				} else{
 					callback('Error!  Please enter a message for your whisper.');

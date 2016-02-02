@@ -8,12 +8,13 @@ jQuery(function($){
   var $messageBox = $('#message');
   var $chat = $('#chat');
   var $chatwrap = $('#chat-wrapper');
-  var bgArr = ['one.jpg', 'two.jpg', 'three.jpg'];
-  var bg = bgArr[Math.floor(Math.random() * bgArr.length)];
-  var path = '/../imgs/';
-  var imageUrl = path + bg;
+  //need to add more bgs.
+  // var bgArr = ['one.jpg', 'two.jpg', 'three.jpg'];
+  // var bg = bgArr[Math.floor(Math.random() * bgArr.length)];
+  // var path = '/../imgs/';
+  // var imageUrl = path + bg;
 
-  $('#content-wrapper').css('background-image', 'url(' + imageUrl +')');
+  //$('#content-wrapper').css('background-image', 'url(' + imageUrl +')');
 
   //user form submission
   $nameForm.submit(function(e){
