@@ -8,21 +8,33 @@ jQuery(function($){
   var $messageBox = $('#message');
   var $chat = $('#chat');
   var $chatwrap = $('#chat-wrapper');
-  //need to add more bgs.
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //~~~~~~~~~~~~~~~rooms~~~~~~~~~~~~~~~~~~
+  var $makeRoomForm = $('#set-room-form');
+  var $roomName = $('#room-name');
+  var $roomErr = $('#room-fail');
+  // need to add more bgs.
   // var bgArr = ['one.jpg', 'two.jpg', 'three.jpg'];
   // var bg = bgArr[Math.floor(Math.random() * bgArr.length)];
   // var path = '/../imgs/';
   // var imageUrl = path + bg;
-
-  //$('#content-wrapper').css('background-image', 'url(' + imageUrl +')');
-
-  //user form submission
-  var a = window.prompt('enter your name');
-  console.log(a);
+  //
+  // $('#content-wrapper').css('background-image', 'url(' + imageUrl +')');
 
 
-  $nameForm.submit(function(e){
-    e.preventDefault();
+  // $makeRoomForm.submit(function(e){
+  //   e.preventDefault();
+  //
+  //   socket.emit('set room', $roomName.val(), function(data){
+  //     if (data){
+  //       $("#room-wrapper").hide();
+  //     }else{
+  //       $roomErr.html('Your input was invalid, try again.')
+  //     }
+  //   })
+
+  $nameForm.submit(function(ee){
+    ee.preventDefault();
     //calls to the socket to emit the new user into the chat field
     socket.emit('new user', $userBox.val(), function(data){
       if(data){
@@ -36,6 +48,8 @@ jQuery(function($){
     });
     $userBox.val('');
   });
+
+  // })
 
 	String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -60,6 +74,8 @@ jQuery(function($){
       // $chat.append('<span class="error">' + data + "</span>");
       var height = $chat[0].scrollHeight;
       $chat.scrollTop(height);
+
+
     });
     $messageBox.val('');
   });
@@ -83,18 +99,28 @@ jQuery(function($){
     // if(data.nick == socket.nickname){
     //
     // }
-    $chat.append('<p class="msg"><b>' + data.nick + ': </b>' + data.msg + "</p>");
+    $chat.append('<div class="msgWsprWrapper"><span class="msgUsername '+data.nick+'">'+data.nick+'</span><span class="msg">' + data.msg + "</span></div>");
+
+    //~~~~~~~~
+    //lists the chat[0] children
+    //~~~~~~~~
     // console.log($chat[0].children);
     // for(var i = 0; i < $chat.children; i++ ){
     //   console.log($chat[0].children);
     // }
+    // console.log(data.nick)
+    // var $nickName = '.'+data.nick;
+    // console.log($nickName);
+
+    //this works are setting all user's classes red--- only need random color selector /// may need to set in new user to ensure class colour
+    //$('.'+data.nick).css('background-color', 'red');
     var height = $chat[0].scrollHeight;
     $chat.scrollTop(height);
   }
 
   //whisper users
   socket.on('whisper', function(data){
-    $chat.append('<span class="whisper"><b>' + data.nick + ': </b>' + data.msg + "</span>");
+    $chat.append('<div class="msgWsprWrapper"><span class="msgUsername">'+data.nick+'</span><span class="whisper msg">' + data.msg + "</span></div>");
     var height = $chat[0].scrollHeight;
     $chat.scrollTop(height);
   });

@@ -7,6 +7,7 @@ var express = require('express'),
 		sass = require('node-sass'),
 		_ = require('backbone/node_modules/underscore'),
 		backbone = require('backbone'),
+		rooms = [],
 		users = {},
 	  savedUsers = [],
 		sentMsgs = [],
@@ -33,13 +34,16 @@ app.use(function(req, res) {
 	console.log(err);
 });
 
-//user connected to /chat
-io.sockets.on('connection', function(socket) {
-	console.log('A user connected');
-})
 //on connection to socket
 io.sockets.on('connection', function(socket){
-	console.log('shazamo');
+
+	//~~~~~~
+	// var rm = io.of('/');
+	// rm.on('connection', function(socket){
+	// 	console.log('rm is declared');
+	// })
+	//~~~~~~
+
   //query finds messages
 	//must use model.find() to search the premade model --- no need for a new CHAT model. It wouldn't exist.
 	var query = model.find();
@@ -120,7 +124,6 @@ io.sockets.on('connection', function(socket){
 				if(ind !== -1){
 					var name = msg.substring(0, ind).toLowerCase();
 					var msg = msg.substring(ind + 1);
-					console.log(msg + ' ::: ' +ind +' : '+':: test')
 					if(name in users){
 						users[name].emit('whisper', {msg: msg, nick: socket.nickname});
 						console.log('message sent is: ' + msg);

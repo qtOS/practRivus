@@ -87,13 +87,14 @@ html, body {
           color: gray;
           font-style: italic; }
         html #content-wrapper #chat-wrapper #chat .msg, body #content-wrapper #chat-wrapper #chat .msg {
-          padding: 5px;
+          padding: 1%;
           display: block;
-          width: 90%;
+          width: 98%;
           background: black;
           opacity: .7;
           overflow-x: hidden;
-          font-size: 3.25vh; }
+          font-size: 3.25vh;
+          margin: 0 0 2vh; }
     html #content-wrapper #sender-wrapper, body #content-wrapper #sender-wrapper {
       width: 100%;
       height: 20%;

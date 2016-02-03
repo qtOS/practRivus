@@ -88,6 +88,9 @@ html, body{
         overflow-y: auto;
         display: block;
 
+
+
+
         .error{
           color: red;
           display: block;
@@ -97,14 +100,16 @@ html, body{
           font-style: italic;
         }
         .msg{
-          padding: 5px;
+          padding: 1%;
           display: block;
-          width: 90%;
+          width: 98%;
           background: black;
           opacity: .7;
           overflow-x: hidden;
           font-size: 3.25vh;
+          margin: 0 0 2vh;
         }
+
       }
     }
 
