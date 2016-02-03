@@ -46,21 +46,37 @@ html, body{
     color: white;
     z-index: 100;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 22vh;
 
     #set-name-form{
       display: block;
       width: 25%;
+      min-width: 125px;
+      height: auto;
+      padding: 5%;
       margin: 0 auto;
-      font-size: 3vh;
+      font-size: 4vh;
+      background: rgba(230, 230, 230, .6);
+
+      label{
+        padding-bottom: 5%;
+        display: block;
+      }
 
       input{
-        width: 100%;
+        width: 15vw;
+
         border: none;
-        padding: 0;
+        font-size: 5vh;
+        padding: 1vh;
+        background-color: rgba(230, 230, 230, .6);
+        //shadow generate here
       }
       input:nth-child(odd){
+        margin-top: 2vh;
+        width: 7.5vw;
         padding: 2%;
+        font-size: 3vh;
         border: none;
       }
     }
@@ -76,7 +92,7 @@ html, body{
 
     #chat-wrapper{
       display: block;
-      width: 50%;
+      width: 40%;
       height: 80%;
       margin: 0 auto;
 
@@ -87,6 +103,7 @@ html, body{
         height: 100%;
         overflow-y: auto;
         display: block;
+        text-align: center;
 
 
 

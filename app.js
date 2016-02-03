@@ -101,10 +101,12 @@ io.sockets.on('connection', function(socket){
 			callback(false);
 		}else{
 			var msg = data;
+			//handle mutliple messages with a data hydrate system ~~~ arrays and empty the array.. so on and so forth
 			console.log(data +': data')
 			console.log(msg);
 			msg = data.trim();
 			console.log('after trimming message is: ' + msg);
+			console.log(sentMsgs + " :: ///  / / / /");
 			// if(msg.substr(0) === '/'){
 			// 	var someData = {
 			// 		msg: "need help?",
@@ -117,7 +119,7 @@ io.sockets.on('connection', function(socket){
 			//}
 			console.log('hi')
 			//whisper logic
-			if(msg.substr(0,3) === '/w ' || msg.substr(0,2) === '/w'){
+			if(msg.substr(0,3) == '/w ' || msg.substr(0,2) == '/w' || msg.substr(0) == '/'){
 				msg = msg.substr(3);
 				var ind = msg.indexOf(' ');
 				console.log('whisper was not made, fool');
@@ -136,11 +138,14 @@ io.sockets.on('connection', function(socket){
 					callback('Error!  Please enter a message for your whisper.');
 				}
 			} else{
-				var msgCount = sentMsgs.push(data);
+				var msgCount = sentMsgs.push(socket.msgCount);
 				console.log(msgCount + ' : counted msg');
 				var newMsg = new model({msg: msg, nick: socket.nickname});
 				newMsg.save(function(err){
 					if(err) throw err;
+
+					console.log();
+
 					io.sockets.emit('new message', {msg: msg, nick: socket.nickname});
 				});
 			}

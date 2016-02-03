@@ -48,18 +48,30 @@ html, body {
     color: white;
     z-index: 100;
     text-align: center;
-    padding-top: 10%; }
+    padding-top: 22vh; }
     html #username-login-form #set-name-form, body #username-login-form #set-name-form {
       display: block;
       width: 25%;
+      min-width: 125px;
+      height: auto;
+      padding: 5%;
       margin: 0 auto;
-      font-size: 3vh; }
+      font-size: 4vh;
+      background: rgba(230, 230, 230, 0.6); }
+      html #username-login-form #set-name-form label, body #username-login-form #set-name-form label {
+        padding-bottom: 5%;
+        display: block; }
       html #username-login-form #set-name-form input, body #username-login-form #set-name-form input {
-        width: 100%;
+        width: 15vw;
         border: none;
-        padding: 0; }
+        font-size: 5vh;
+        padding: 1vh;
+        background-color: rgba(230, 230, 230, 0.6); }
       html #username-login-form #set-name-form input:nth-child(odd), body #username-login-form #set-name-form input:nth-child(odd) {
+        margin-top: 2vh;
+        width: 7.5vw;
         padding: 2%;
+        font-size: 3vh;
         border: none; }
   html #content-wrapper, body #content-wrapper {
     width: 100%;
@@ -71,7 +83,7 @@ html, body {
     overflow-y: auto; }
     html #content-wrapper #chat-wrapper, body #content-wrapper #chat-wrapper {
       display: block;
-      width: 50%;
+      width: 40%;
       height: 80%;
       margin: 0 auto; }
       html #content-wrapper #chat-wrapper #chat, body #content-wrapper #chat-wrapper #chat {
@@ -79,7 +91,8 @@ html, body {
         width: 100%;
         height: 100%;
         overflow-y: auto;
-        display: block; }
+        display: block;
+        text-align: center; }
         html #content-wrapper #chat-wrapper #chat .error, body #content-wrapper #chat-wrapper #chat .error {
           color: red;
           display: block; }

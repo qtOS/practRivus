@@ -10,9 +10,11 @@ jQuery(function($){
   var $chatwrap = $('#chat-wrapper');
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~~~rooms~~~~~~~~~~~~~~~~~~
-  var $makeRoomForm = $('#set-room-form');
-  var $roomName = $('#room-name');
-  var $roomErr = $('#room-fail');
+  // var $makeRoomForm = $('#set-room-form');
+  // var $roomName = $('#room-name');
+  // var $roomErr = $('#room-fail');
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //~~~~~~~~~~~~~~RandBGs~~~~~~~~~~~~~~~~
   // need to add more bgs.
   // var bgArr = ['one.jpg', 'two.jpg', 'three.jpg'];
   // var bg = bgArr[Math.floor(Math.random() * bgArr.length)];
