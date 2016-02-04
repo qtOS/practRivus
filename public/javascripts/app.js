@@ -69,18 +69,47 @@ jQuery(function($){
     $users.html(user);
 
   });
+
   //sends error if whisper cannot be made
-  $messageForm.submit(function(e){
-    e.preventDefault();
-    socket.emit('send message', $messageBox.val(), function(data){
-      // $chat.append('<span class="error">' + data + "</span>");
-      var height = $chat[0].scrollHeight;
-      $chat.scrollTop(height);
+  // $('#message').onkeyup = function(e){
+  // e = e || event;
+  // if (e.keyCode === 13) {
+    // start your submit function
+//     $('.messageTextarea').keydown(function() {
+//     if (event.keyCode == 13) {
+//       this.$messageForm.submit(function(e){
+//         e.preventDefault();
+//         socket.emit('send message', $messageBox.val(), function(data){
+//           // $chat.append('<span class="error">' + data + "</span>");
+//           var height = $chat[0].scrollHeight;
+//           $chat.scrollTop(height);
+//
+//
+//         });
+//         $messageBox.val('');
+//       });
+//      }
+// });
 
-
-    });
-    $messageBox.val('');
+  $('#message').on('keydown', function(event) {
+    if (event.keyCode == 13){
+      console.log(event);
+        if (!event.shiftKey){
+          //$messageForm.submit(function(){
+            socket.emit('send message', $messageBox.val(), function(data){
+              console.log('successs', data);
+              // $chat.append('<span class="error">' + data + "</span>");
+              var height = $chat[0].scrollHeight;
+              $chat.scrollTop(height);
+            });
+            $messageBox.val('');
+          //});
+        }
+      }
   });
+ //  }
+ //  return true;
+ // }
 
 
 
@@ -101,7 +130,7 @@ jQuery(function($){
     // if(data.nick == socket.nickname){
     //
     // }
-    $chat.append('<div class="msgWsprWrapper"><span class="msgUsername '+data.nick+'">'+data.nick+'</span><span class="msg">' + data.msg + "</span></div>");
+    $chat.append('<div class="msgWrapper"><span class="msgUsername '+data.nick+'">'+data.nick+'</span><span class="msg">' + data.msg + "</span></div>");
 
     //~~~~~~~~
     //lists the chat[0] children
@@ -122,7 +151,7 @@ jQuery(function($){
 
   //whisper users
   socket.on('whisper', function(data){
-    $chat.append('<div class="msgWsprWrapper"><span class="msgUsername">'+data.nick+'</span><span class="whisper msg">' + data.msg + "</span></div>");
+    $chat.append('<div class="msgWrapper wspr"><span class="msgUsername">'+data.nick+'</span><span class="whisper msg">' + data.msg + "</span></div>");
     var height = $chat[0].scrollHeight;
     $chat.scrollTop(height);
   });

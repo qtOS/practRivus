@@ -91,11 +91,7 @@ io.sockets.on('connection', function(socket){
 	function updateNicknames(){
 		io.sockets.emit('usernames', Object.keys(users));
 	}
-	// function blockEmpty(msg){
-	// 	if(msg.length == null){
-	//
-	// 	}
-	// }
+
 	socket.on('send message', function(data, callback){
 		if( data == 0 || socket.nickname == null){
 			callback(false);
@@ -106,7 +102,6 @@ io.sockets.on('connection', function(socket){
 			console.log(msg);
 			msg = data.trim();
 			console.log('after trimming message is: ' + msg);
-			console.log(sentMsgs + " :: ///  / / / /");
 			// if(msg.substr(0) === '/'){
 			// 	var someData = {
 			// 		msg: "need help?",
@@ -117,7 +112,6 @@ io.sockets.on('connection', function(socket){
 				// io.emit('whisper', {msg: someData, nick: "the logger"});
 				//~~~~ cant forget this
 			//}
-			console.log('hi')
 			//whisper logic
 			if(msg.substr(0,3) == '/w ' || msg.substr(0,2) == '/w' || msg.substr(0) == '/'){
 				msg = msg.substr(3);

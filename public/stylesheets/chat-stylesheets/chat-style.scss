@@ -86,47 +86,52 @@ html, body{
     width: 100%;
     height: 100%;
     //replace
-    @include resizableBackground('/../imgs/river.jpg');
-
+    //@include resizableBackground('/../imgs/river.jpg');
+    background-color: rgba( #FFFFFF, .5);
     overflow-y: auto;
 
     #chat-wrapper{
       display: block;
-      width: 40%;
+      width: 70%;
       height: 80%;
       margin: 0 auto;
 
       #chat{
         //replace
-        background-color: rgba(200, 200, 200, .9);
+        background-color: rgba(20, 20, 20, .9);
         width: 100%;
         height: 100%;
         overflow-y: auto;
         display: block;
         text-align: center;
 
+        .msgWrapper{
+          //background-color: rgba(100, 100, 100, .5);
 
-
-
-        .error{
-          color: red;
-          display: block;
+          .msgUsername{
+            background: black;
+            padding: 0 1vw;
+          }
+          .error{
+            color: red;
+            display: block;
+          }
+          .whisper{
+            color: gray;
+            font-style: italic;
+          }
+          .msg{
+            padding: 1%;
+            display: block;
+            width: 98%;
+            background: black;
+            opacity: .7;
+            overflow-x: hidden;
+            font-size: 4vh;
+            margin: 0 0 2vh;
+            color: blue;
+          }
         }
-        .whisper{
-          color: gray;
-          font-style: italic;
-        }
-        .msg{
-          padding: 1%;
-          display: block;
-          width: 98%;
-          background: black;
-          opacity: .7;
-          overflow-x: hidden;
-          font-size: 3.25vh;
-          margin: 0 0 2vh;
-        }
-
       }
     }
 
@@ -140,13 +145,15 @@ html, body{
         height: 100%;
 
         #message{
-          width: 35%;
+          width: 40%;
           max-width: 40%;
           max-height: 100px;
           margin: 0 auto;
           display: block;
           border: none;
           padding: .5%;
+          font-size: 3vh;
+          resize: none;
         }
         // #submitter{
         //   margin: -1.85% 69%;
@@ -162,7 +169,7 @@ html, body{
     }
 
     #users{
-      width: 15%;
+      width: 10%;
       height: 30%;
       display: block;
       position: absolute;
@@ -171,6 +178,7 @@ html, body{
       top: 5%;
       left: 0;
       padding: 2.5%;
+      text-align: center;
 
       .usersList{
         font-size: 1.75vw;
