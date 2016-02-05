@@ -1,7 +1,6 @@
 @import "mixins.scss";
 body{
   color: white;
-  background: black;
   @include scrollBar;
 
   #preloader_1{

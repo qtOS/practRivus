@@ -4,7 +4,7 @@
 		<p id="login-fail"></p>
 		<form id="set-name-form">
 				<label>Who the hell are you?</label>
-				<input size="15" id="username" placeholder="some bitch"></input>
+				<input size="15" maxlength="13"id="username" placeholder="some bitch"></input>
 				<input type="submit"></input>
 		</form>
 	</div>
@@ -17,9 +17,7 @@
 	<div id="sender-wrapper">
 		<form id="send-message">
 			<div id="input-container">
-				<!-- <input type="textarea" id="message" maxlength="1000"> -->
-				<textarea id="message" rows="5" form="send-message"></textarea>
-				<input type="submit" id="submitter"></input>
+				<textarea id="message" rows="2" form="send-message" maxlength="1200"></textarea>
 			</div>
 		</form>
 	</div>

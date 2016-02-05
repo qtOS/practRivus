@@ -59,7 +59,7 @@ io.sockets.on('connection', function(socket){
 		//this grabs messages
 		//~~~~~~~~
 	});
-
+var patt1 = /\s/g;
   //creates new user
 	socket.on('new user', function(data, callback){
 		function throwUser(something){

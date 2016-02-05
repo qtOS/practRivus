@@ -1,6 +1,5 @@
 body {
-  color: white;
-  background: black; }
+  color: white; }
   body ::-webkit-scrollbar {
     width: 1vw;
     height: 2vh; }

@@ -23,6 +23,10 @@ jQuery(function($){
   //
   // $('#content-wrapper').css('background-image', 'url(' + imageUrl +')');
 
+  //RANDOM COLORS
+  // var colArr = ['#000000', '#ef33fb', '#ef4555'];
+  // var col = colArr[Math.floor(Math.random() * colArr.length)];
+
 
   // $makeRoomForm.submit(function(e){
   //   e.preventDefault();
@@ -34,9 +38,17 @@ jQuery(function($){
   //       $roomErr.html('Your input was invalid, try again.')
   //     }
   //   })
-
-  $nameForm.submit(function(ee){
-    ee.preventDefault();
+  $nameForm.on({
+    keydown: function(e) {
+      if (e.which === 32)
+        return false;
+    },
+    change: function() {
+      this.value = this.value.replace(/\s/g, "");
+    }
+  });
+  $nameForm.submit(function(e){
+    e.preventDefault();
     //calls to the socket to emit the new user into the chat field
     socket.emit('new user', $userBox.val(), function(data){
       if(data){
@@ -59,12 +71,13 @@ jQuery(function($){
   //users list
   socket.on('usernames', function(data){
     var user = '';
+
+    console.log(data);
     //loops through users data and displays them
     for(var i=0; i < data.length; i++){
       data[i] = data[i].capitalizeFirstLetter();
       user += '<span class="usersList">'+data[i] + '</span>'
       console.log(data[i]+ ' has logged in.');
-    //  console.log(user + ' - '+ i);
     }
     $users.html(user);
 
@@ -93,17 +106,16 @@ jQuery(function($){
 
   $('#message').on('keydown', function(event) {
     if (event.keyCode == 13){
-      console.log(event);
-        if (!event.shiftKey){
-          //$messageForm.submit(function(){
-            socket.emit('send message', $messageBox.val(), function(data){
-              console.log('successs', data);
-              // $chat.append('<span class="error">' + data + "</span>");
-              var height = $chat[0].scrollHeight;
-              $chat.scrollTop(height);
-            });
-            $messageBox.val('');
-          //});
+      if (!event.shiftKey){
+        event.preventDefault();//orc stomps the roaches 
+        //$messageForm.submit(function(){
+          socket.emit('send message', $messageBox.val(), function(data){
+            // $chat.append('<span class="error">' + data + "</span>");
+            var height = $chat[0].scrollHeight;
+            $chat.scrollTop(height);
+          });
+          $messageBox.val('');
+        //});
         }
       }
   });
