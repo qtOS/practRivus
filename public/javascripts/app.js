@@ -76,7 +76,7 @@ jQuery(function($){
     //loops through users data and displays them
     for(var i=0; i < data.length; i++){
       data[i] = data[i].capitalizeFirstLetter();
-      user += '<span class="usersList">'+data[i] + '</span>'
+      user += '<span class="usersList">'+data[i]+'</span>'
       console.log(data[i]+ ' has logged in.');
     }
     $users.html(user);
@@ -107,7 +107,7 @@ jQuery(function($){
   $('#message').on('keydown', function(event) {
     if (event.keyCode == 13){
       if (!event.shiftKey){
-        event.preventDefault();//orc stomps the roaches 
+        event.preventDefault();//orc stomps the roaches
         //$messageForm.submit(function(){
           socket.emit('send message', $messageBox.val(), function(data){
             // $chat.append('<span class="error">' + data + "</span>");

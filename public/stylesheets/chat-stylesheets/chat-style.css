@@ -129,7 +129,7 @@ html, body {
           font-size: 3vh;
           resize: none; }
     html #content-wrapper #users, body #content-wrapper #users {
-      width: 10%;
+      width: 15%;
       height: 30%;
       display: block;
       position: absolute;
@@ -137,12 +137,12 @@ html, body {
       background-color: rgba(189, 186, 161, 0.5);
       top: 5%;
       left: 0;
-      padding: 2.5%;
+      padding: 2.5% .25% 1.5% .25%;
       text-align: center; }
       html #content-wrapper #users .usersList, body #content-wrapper #users .usersList {
         font-size: 1.9vw;
         display: block;
         color: #F4CB86;
-        padding: 1vw 0; }
+        padding: 1vw 0 0; }
 
 /*# sourceMappingURL=chat-style.css.map */
