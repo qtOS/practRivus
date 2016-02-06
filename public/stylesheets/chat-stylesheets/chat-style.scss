@@ -87,7 +87,7 @@ html, body{
     height: 100%;
     //replace
     //@include resizableBackground('/../imgs/river.jpg');
-    background-color: #677271;
+    background-color: rgba(#677271, 1);
     overflow-y: auto;
 
     #chat-wrapper{
@@ -98,7 +98,7 @@ html, body{
 
       #chat{
         //replace
-        background-color: rgba(20, 20, 20, .9);
+        background-color: rgba(20, 20, 20, .8);
         width: 100%;
         height: 100%;
         overflow-y: auto;
