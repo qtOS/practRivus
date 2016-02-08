@@ -54,7 +54,7 @@ html, body {
       width: 25%;
       min-width: 125px;
       height: auto;
-      padding: 5%;
+      padding: 5vh;
       margin: 0 auto;
       font-size: 4vh;
       background: rgba(230, 230, 230, 0.6); }
@@ -120,7 +120,6 @@ html, body {
         height: 100%; }
         html #content-wrapper #sender-wrapper #input-container #message, body #content-wrapper #sender-wrapper #input-container #message {
           width: 40%;
-          max-width: 40%;
           height: auto;
           background-color: #BDBAA1;
           margin: 0 auto;
@@ -129,6 +128,8 @@ html, body {
           overflow-y: hidden;
           font-size: 2vw;
           resize: none; }
+          html #content-wrapper #sender-wrapper #input-container #message:active, body #content-wrapper #sender-wrapper #input-container #message:active {
+            width: 60%; }
     html #content-wrapper #users, body #content-wrapper #users {
       width: 15%;
       height: 30%;

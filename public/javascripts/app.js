@@ -80,7 +80,6 @@ jQuery(function($){
       console.log(data[i]+ ' has logged in.');
     }
     $users.html(user);
-
   });
 
   //sends error if whisper cannot be made

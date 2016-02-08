@@ -53,7 +53,7 @@ html, body{
       width: 25%;
       min-width: 125px;
       height: auto;
-      padding: 5%;
+      padding: 5vh;
       margin: 0 auto;
       font-size: 4vh;
       background: rgba(230, 230, 230, .6);
@@ -151,7 +151,6 @@ html, body{
 
         #message{
           width: 40%;
-          max-width: 40%;
           height: auto;
           background-color: #BDBAA1;
           margin: 0 auto;
@@ -160,6 +159,10 @@ html, body{
           overflow-y: hidden;
           font-size: 2vw;
           resize: none;
+
+          &:active{
+            width: 60%;
+          }
         }
         // #submitter{
         //   margin: -1.85% 69%;
