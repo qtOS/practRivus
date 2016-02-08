@@ -114,7 +114,7 @@ html, body {
     html #content-wrapper #sender-wrapper, body #content-wrapper #sender-wrapper {
       width: 100%;
       height: 10%;
-      background: rgba(67, 67, 85, 0.9); }
+      background: rgba(32, 32, 48, 0.9); }
       html #content-wrapper #sender-wrapper #input-container, body #content-wrapper #sender-wrapper #input-container {
         width: 100%;
         height: 100%; }
@@ -122,11 +122,12 @@ html, body {
           width: 40%;
           max-width: 40%;
           height: auto;
+          background-color: #BDBAA1;
           margin: 0 auto;
           display: block;
           border: none;
           overflow-y: hidden;
-          font-size: 3vh;
+          font-size: 2vw;
           resize: none; }
     html #content-wrapper #users, body #content-wrapper #users {
       width: 15%;
