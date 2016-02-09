@@ -8,6 +8,7 @@ jQuery(function($){
   var $messageBox = $('#message');
   var $chat = $('#chat');
   var $chatwrap = $('#chat-wrapper');
+  var $nav = $('.navItems');
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~~~rooms~~~~~~~~~~~~~~~~~~
   // var $makeRoomForm = $('#set-room-form');
@@ -38,6 +39,9 @@ jQuery(function($){
   //       $roomErr.html('Your input was invalid, try again.')
   //     }
   //   })
+  $nav.click(function(e){
+    e.preventDefault();
+  })
   $nameForm.on({
     keydown: function(e) {
       if (e.which === 32)
