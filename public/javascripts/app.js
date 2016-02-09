@@ -28,20 +28,6 @@ jQuery(function($){
   // var colArr = ['#000000', '#ef33fb', '#ef4555'];
   // var col = colArr[Math.floor(Math.random() * colArr.length)];
 
-
-  // $makeRoomForm.submit(function(e){
-  //   e.preventDefault();
-  //
-  //   socket.emit('set room', $roomName.val(), function(data){
-  //     if (data){
-  //       $("#room-wrapper").hide();
-  //     }else{
-  //       $roomErr.html('Your input was invalid, try again.')
-  //     }
-  //   })
-  $nav.click(function(e){
-    e.preventDefault();
-  })
   $nameForm.on({
     keydown: function(e) {
       if (e.which === 32)
