@@ -1,6 +1,6 @@
 var express = require('express'),
 		app = express(),
-		server = require('http').Server(app).listen(3000),
+		server = require('http').Server(app).listen(port),
  		io = require('socket.io')(server),
 		mongoose = require('mongoose'),
 		path = require('path'),
