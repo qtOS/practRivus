@@ -64,15 +64,17 @@ html, body {
           padding: 0; }
         html #content-container-foundation ul li #title-bar, body #content-container-foundation ul li #title-bar {
           width: 100%;
-          height: 41%;
+          height: 40%;
           margin-top: 12vh;
           background-color: rgba(155, 102, 11, 0.8);
-          padding-top: 9%; }
+          padding-top: 10%; }
           html #content-container-foundation ul li #title-bar h1, body #content-container-foundation ul li #title-bar h1 {
-            margin-bottom: 2vh; }
+            margin-bottom: 2vh;
+            font-size: 6vh; }
           html #content-container-foundation ul li #title-bar p, body #content-container-foundation ul li #title-bar p {
-            width: 30%;
-            margin: 0 auto; }
+            width: 50%;
+            margin: 0 auto;
+            font-size: 4vh; }
         html #content-container-foundation ul li #info-container, body #content-container-foundation ul li #info-container {
           width: 100%;
           height: 100%;
@@ -87,22 +89,22 @@ html, body {
             overflow-y: auto;
             margin-right: 2vh; }
             html #content-container-foundation ul li #info-container article h1, html #content-container-foundation ul li #info-container article p, body #content-container-foundation ul li #info-container article h1, body #content-container-foundation ul li #info-container article p {
-              margin: 0;
-              padding: 0; }
-            html #content-container-foundation ul li #info-container article h1, html #content-container-foundation ul li #info-container article p, body #content-container-foundation ul li #info-container article h1, body #content-container-foundation ul li #info-container article p {
               margin: 3.5vh auto 0;
               margin-bottom: 3vh;
               width: 80%; }
-          html #content-container-foundation ul li #info-container aside, body #content-container-foundation ul li #info-container aside {
+            html #content-container-foundation ul li #info-container article h1, body #content-container-foundation ul li #info-container article h1 {
+              font-size: 2.2vw; }
+            html #content-container-foundation ul li #info-container article p, body #content-container-foundation ul li #info-container article p {
+              font-size: 1.8vw; }
+          html #content-container-foundation ul li #info-container #portrait, body #content-container-foundation ul li #info-container #portrait {
             margin: 0;
-            width: 25%;
+            width: 30%;
             height: 80%;
             float: right;
             margin-top: 7.5vh;
             border-radius: 2px;
-            opacity: .05;
-            margin-right: 5%;
-            background: url("../imgs/fungus.jpg");
+            opacity: .35;
+            background: url("/../imgs/myself.png");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -111,24 +113,24 @@ html, body {
             -ms-transition: opacity 250ms linear;
             -o-transition: opacity 250ms linear;
             transition: opacity 250ms linear; }
-            html #content-container-foundation ul li #info-container aside:hover, body #content-container-foundation ul li #info-container aside:hover {
+            html #content-container-foundation ul li #info-container #portrait:hover, body #content-container-foundation ul li #info-container #portrait:hover {
               -webkit-transition: opacity 250ms linear;
               -moz-transition: opacity 250ms linear;
               -ms-transition: opacity 250ms linear;
               -o-transition: opacity 250ms linear;
               transition: opacity 250ms linear; }
-            html #content-container-foundation ul li #info-container aside:hover, body #content-container-foundation ul li #info-container aside:hover {
+            html #content-container-foundation ul li #info-container #portrait:hover, body #content-container-foundation ul li #info-container #portrait:hover {
               -webkit-transition: opacity 500ms linear;
               -moz-transition: opacity 500ms linear;
               -ms-transition: opacity 500ms linear;
               -o-transition: opacity 500ms linear;
               transition: opacity 500ms linear;
-              background: url("../imgs/fungus.jpg");
+              background: url("/../imgs/myself.png");
               background-position: center;
               background-repeat: no-repeat;
               background-size: cover;
               opacity: 1; }
-              html #content-container-foundation ul li #info-container aside:hover:hover, body #content-container-foundation ul li #info-container aside:hover:hover {
+              html #content-container-foundation ul li #info-container #portrait:hover:hover, body #content-container-foundation ul li #info-container #portrait:hover:hover {
                 -webkit-transition: opacity 500ms linear;
                 -moz-transition: opacity 500ms linear;
                 -ms-transition: opacity 500ms linear;
@@ -143,7 +145,8 @@ html, body {
             color: #fff;
             position: absolute;
             z-index: 1;
-            margin-top: 10vh; }
+            padding: 3vh 0;
+            margin: -.5vh 0 0 0; }
           html #content-container-foundation ul li #updates-container ol, body #content-container-foundation ul li #updates-container ol {
             margin: 0;
             padding: 0;
